@@ -1,9 +1,42 @@
 @chasert "utf-8";
 
-html{
+html {
     height: 100%;
 }
-body{
+
+body {
     height: 100%;
-    background: #3C4767;
+    background: linear-gradient(#3C4768, pink) fixed;
+}
+
+
+.logout-content {
+    background-color: red;
+    background: rgba(2, 0, 5, 0.4);
+    margin-left: 450px;
+    margin-right: 450px;
+}
+
+
+
+.register-title {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.register-content {
+    margin-top: 100px;
+    display: block;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+    color: white;
+    line-height: 30px;
+    padding-left: 40px;
 }

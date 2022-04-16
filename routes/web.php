@@ -36,6 +36,8 @@ Route::get('/profile','UsersController@profile');
 
 Route::get('users/search','UsersController@search');
 
+Route::get('/logout','Auth\LoginController@logout');
+
 
 // フォロー関連
 Route::get('layouts/follow-list','FollowsController@followList');

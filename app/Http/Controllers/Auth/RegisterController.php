@@ -79,6 +79,22 @@ class RegisterController extends Controller
         if($request->isMethod('post')){
             $data = $request->input();
 // ここからバリデーション
+            $request->validate([
+            'username' => 'required|string|max:12|min:4',
+            'mail' => 'required|string|email|min:5|unique:users',
+            'password' => 'required|string|min:4|confirmed',
+            ],[
+                'username.required' => '名前は必須です',
+                'mail.required' => 'メールアドレスは必須です',
+                'password.required' => 'パスワードは必須です',
+                'username.max' => '名前は12文字以内です',
+                'username.min' => '名前は4文字以上です',
+                'mail.email' => '使用可能なメールアドレスではありません',
+                'mail.min' => 'メールアドレスは5文字以上です',
+                'mail.unique' => '登録済みのメールアドレスです',
+                'password.min' => 'パスワードは4文字以上です',
+                'password.confirmed' => 'パスワードが一致しません',
+            ]);
             $this->create($data);
             return redirect('added');
         }

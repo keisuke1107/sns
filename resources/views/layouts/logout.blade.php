@@ -21,8 +21,13 @@
 </head>
 <body>
     <header>
-        <h1><img src="images/main_logo.png"></h1>
-        <p>Social Network Service</p>
+        <div class="register-title">
+           <div>
+               <h1><img src="images/main_logo.png"></h1>
+            </div>
+            <div>
+               <p>Social Network Service</p>
+            </div>
     </header>
     <div id="container">
         @yield('content')
