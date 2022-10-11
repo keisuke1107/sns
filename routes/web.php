@@ -19,6 +19,8 @@
 //Auth::routes();
 
 
+Route::get('test','PostsController@posts');
+
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -34,14 +36,26 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('users/search','UsersController@search');
+Route::get('/search','UsersController@search');
 
 Route::get('/logout','Auth\LoginController@logout');
 
+Route::post('post/create','PostsController@create');
+
+Route::post('post/update','PostsController@update');
+
 
 // フォロー関連
-Route::get('layouts/follow-list','FollowsController@followList');
-Route::get('layouts/follower-list','PostsController@followerList');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','PostsController@followerList');
+Route::post('follow/create',"FollowsController@create");
+Route::post('follow/remove',"FollowsController@remove");
+Route::get('/result','UsersController@result');
+Route::get('userprofile/{id}','UsersController@userprofile');
+
 
 // つぶやき削除
 Route::get('/post/{id}/delete', 'PostsController@delete');
+
+//プロフィール編集
+Route::post('/upload','UsersController@store');

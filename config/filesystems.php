@@ -65,6 +65,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'icon' => [
+            'driver' => 'local',
+            'root' => public_path('images'),
+        ],
+
     ],
 
 ];

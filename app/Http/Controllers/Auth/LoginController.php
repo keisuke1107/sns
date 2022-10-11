@@ -40,12 +40,15 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
+        $user = Auth::user();
         if($request->isMethod('post')){
-
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
+                // 要検証
+                // $username = Auth::user();
+                // view()->share('username', $username);
                 return redirect('/top');
             }
         }

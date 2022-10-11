@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -18,47 +18,70 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+<!-- bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <div id = "head">
-        <h1><a><img src="images/main_logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/dawn.png"></p>
-                <div>
+
+<header>
+    <div id = "head">
+     <h1 class="top-logo"><a href="/top"><img src="{{asset('/images/main_logo.png')}}"></a></h1>
+        <div id="top-content">
+         <div id="menu">
+          <label for ="menu_bar"> {{ $user['username'] }}さん
+            <!-- ハンバーガーメニュー -->
+             <nav class="g-navi">
+              <div class="nav-wrapper">
                 <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                 <li class="nav-item"><a href="/top">ホーム</a></li>
+                 <li class="nav-item"><a href="/profile">プロフィール</a></li>
+                 <li class="nav-item"><a href="/logout">ログアウト</a></li>
                 </ul>
-            </div>
+              </div>
+             </nav>
+             <nav class="g-navi-sp">
+              <div class="menu-trigger">
+               <span></span>
+               <span></span>
+              </div>
+             </nav>
+            <img src="{{ asset('images/'.$user->images) }}" class="img-circle">
+           </label>
+          </div>
         </div>
-    </header>
+    </div>
+</header>
+
     <div id="row">
         <div id="container">
             @yield('content')
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ $user['username'] }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ $follow_number }}名</p>
                 </div>
-                <p class="btn"><a href="layouts/follow-list">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ $follower_number }}名</p>
                 </div>
-                <p class="btn"><a href="layouts/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="users/search">ユーザー検索</a></p>
+            <p class="btn btn-search"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
+
+
+
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('js/style.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

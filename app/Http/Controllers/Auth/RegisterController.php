@@ -78,12 +78,13 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-// ここからバリデーション
+            // ここからバリデーション
             $request->validate([
-            'username' => 'required|string|max:12|min:4',
-            'mail' => 'required|string|email|min:5|unique:users',
-            'password' => 'required|string|min:4|confirmed',
-            ],[
+                'username' => 'required|string|max:12|min:4',
+                'mail' => 'required|string|email|min:5|unique:users',
+                'password' => 'required|string|min:4|confirmed',
+            ],
+            [
                 'username.required' => '名前は必須です',
                 'mail.required' => 'メールアドレスは必須です',
                 'password.required' => 'パスワードは必須です',
@@ -96,7 +97,9 @@ class RegisterController extends Controller
                 'password.confirmed' => 'パスワードが一致しません',
             ]);
             $this->create($data);
-            return redirect('added');
+
+            // 追加　新規登録したユーザー名をSessionへ格納
+            return redirect('added')->with('username',$data['username']);
         }
         return view('auth.register');
     }

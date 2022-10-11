@@ -3,12 +3,16 @@
 @section('content')
 
 <div id="clear">
-<p>〇〇さん、</p>
-<p>ようこそ！DAWNSNSへ！</p>
-<p>ユーザー登録が完了しました。</p>
-<p>さっそく、ログインをしてみましょう。</p>
+ <div class="logout-content">
+  <div class="register-content">
+   <p>{{ Session('username') }}さん、</p>
+   <p>ようこそ！DAWNSNSへ！</p>
+   <p>ユーザー登録が完了しました。</p>
+   <p>さっそく、ログインをしてみましょう。</p>
+     <p class="btn"><a href="/login">ログイン画面へ</a></p>
+  </div>
+ </div>
 
-<p class="btn"><a href="/login">ログイン画面へ</a></p>
 </div>
 
 @endsection

@@ -1,22 +1,449 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#3C4767;
+header {
+    background: #3C4768;
 }
 
+#head {
+    display: flex;
+}
+
+#top-content {
+    text-align: right;
+}
+
+.top-logo {
+    margin-left: 30px;
+}
+
+
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
+}
+
+
+
+
+
+/* ハンバーガーボタン  */
+.menu-trigger {
+    position: relative;
+    width: 30px;
+    height: 42px;
+    cursor: pointer;
+}
+
+
+.menu-trigger span:nth-child(1) {
+    /* top: 6px; */
+    transform: rotate(60deg);
+}
+
+.menu-trigger span:nth-child(2) {
+    /* top: 6px;
+    left: 13px; */
+    transform: rotate(-60deg);
+}
+
+
+
+.menu-trigger.active span:nth-child(1) {
+    top: 18px;
+    transform: rotate(-60deg);
+}
+
+.menu-trigger.active span:nth-child(2) {
+    top: 18px;
+    transform: rotate(60deg);
+}
+
+
+
+.menu-trigger span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    border-bottom: solid 3px #fff;
+    /* 横線を表す */
+    border-radius: 3px;
+    transition: .35s ease-in-out;
+    /*変化の速度を指定*/
+}
+
+.g-navi {
+    display: block;
+    position: fixed;
+    padding-top: 10%;
+    transform: translateY(-100%);
+    transition: .5s ease-in-out;
+    height: 100vh;
+    top: 0;
+    right: 0;
+}
+
+.g-navi ul {
+    display: block;
+}
+
+.g-navi.active {
+    transform: translateY(0%);
+    transition: .5s ease-in-out;
+}
+
+.g-navi-sp {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #e2bfcb; */
+    width: 10%;
+    padding: 4%;
+    top: 0;
+    right: 0;
+}
+
+
+.nav-item {
+    width: 100%;
+}
+
+
+nav li {
+    text-align: center;
+    border: solid 1px grey;
+    padding: 10px;
+    width: 20%;
+    top: 0;
+    right: 0;
+}
+
+nav li:hover {
+    background-color: #FFAF87;
+    /* カーソル合わせた際の背景色 */
+}
+
+/* 親要素 */
+label {
+    display: block;
+    margin: 0 0 4px 0;
+    padding: 15px;
+    color: #fff;
+    background: #3C4768;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+
+
+/* メイン */
+.btn {
+    float: right;
+    text-align: center;
+    margin: 10px;
+    width: 150px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #3C4768;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.btn-search {
+    margin-top: 40px;
+}
+
+.btn-danger {
+    color: #004445;
+    background-color: orange;
+}
+
+.btn-danger:hover {
+    background-color: #FFF;
+    border: 1px solid #333;
+}
+
+
+
+#top-content {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+}
+
+.post-table {
+    border: 1px solid #333;
+    margin: 10px;
+}
+
+.post-content {
+    width: 100%;
+}
+
+
+.posts {
+    border-bottom: solid 1px gainsboro;
+    width: 100%;
+}
+
+
+.post-btn {
+    border: 0px;
+    float: right;
+    margin-right: 10%;
+}
+
+
+/* *top content * */
+
+.post_input {
+    border-bottom: solid 2px grey;
+    width: 100%;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+.td {
+    padding: 20px;
+}
+
+#top-content {
+    display: flex;
+}
+
+
+
+
+
+
+
+input {
+    display: none;
+}
+
+
+
+
+/* モーダル機能 */
+.modal-main {
+    display: none;
+}
+
+
+.modal-inner {
+    /* モーダル背景を画面幅いっぱいに設定し、位置を固定する。 */
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: #ffffff;
+    color: #666666;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+}
+
+.inner-content {
+    /* ③ モーダル内の要素全体の子要素を中央揃えにする。 */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: 1024px;
+}
+
+.modal-inner img {
+    /* ④ モーダル画像の幅は親要素（.modal-inner）の100%に設定。 */
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+
+.inner-text {
+    font-size: 1.6rem;
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    padding: 100px 50px 100px 50px;
+}
+
+.modalClose {
+    cursor: pointer;
+}
+
+
+
+
+/* プロフィール */
+.profile-content {
+    margin-top: 40px;
+    text-align: center;
+    display: flex;
+}
+
+.input-form {
+    width: 200%;
+}
+
+
+.profile-icon {
+    width: 30%;
+}
+
+
+
+.profile-form {
+    width: 50%;
+}
+
+.profile-successbtn {
+    width: 50%;
+}
+
+.user-profile {
+    padding-left: 30%;
+    margin-bottom: 50px;
+}
+
+.form-group1 {
+    display: flex;
+    width: 50%;
+}
+
+
+.form-group2 {
+    display: flex;
+    width: 50%;
+}
+
+.form-group3 {
+    display: flex;
+    width: 50%;
+}
+
+.form-group4 {
+    display: flex;
+    width: 50%;
+}
+
+.form-group5 {
+    display: flex;
+    width: 50%;
+}
+
+.form-group6 {
+    display: flex;
+    width: 80%;
+}
+
+
+.form-title {
+    margin-right: 30px;
+}
+
+
+.update-btn {
+    background-color: greenyellow;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px 30px 10px 30px;
+    margin-top: 30px;
+
+}
+
+
+/* フォロー、フォロワー */
+.follow-title {
+    font-size: 30px;
+}
+
+
+.followlist-icon {
+    border-bottom: 3px solid gray;
+    margin-bottom: 20px;
+}
+
+.followuser_post {}
+
+
+
+/* ユーザー検索機能 */
+
+.search-form {
+    border-bottom: 3px solid gray;
+    margin-bottom: 20px;
+    padding: 50px;
+}
+
+.followbtn {
+    background-color: aqua;
+    margin-left: 200px;
+}
+
+.unfollowbtn {
+    background-color: orange;
+}
+
+.search-username {
+    padding-left: 20px;
+}
+
+
+.search-table {
+    padding-left: 150px;
+}
+
+.search-input {
+    display: flex;
+}
+
+.search-btn {
+    border: none;
+    background-color: #fff;
+}
+
+
+
+/* ユーザープロフィール */
+.other_profile {
+    border-bottom: 3px solid gray;
+    margin-bottom: 20px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.others {
+    padding: 20px;
+}
+
+.other_name {
+    display: flex;
+}
+
+
+.other_bio {
+    display: flex;
 }
