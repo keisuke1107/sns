@@ -16,6 +16,8 @@
         <button type="submit" class="btn btn-success pull-right">追加</button>
         {{ Form::close() }}
     </div>
+aaaaaa
+
 
         <table>
          @foreach($list as $list)
